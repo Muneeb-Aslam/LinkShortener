@@ -3,13 +3,13 @@ import "./App.css";
 
 function App() {
     return (
-        <div className="bg-bkg font-sans w-full min-h-screen flex flex-col justify-center items-center space-y-12">
-            <div className="text-green font-bold text-3xl leading-none pt-8 pb-2 text-center">
+        <div className="bg-bkg font-sans w-full min-h-screen flex flex-col justify-center items-center space-y-2 sm:space-y-12">
+            <div className="text-green font-bold text-3xl leading-none sm:pt-8 sm:pb-2 text-center">
                 Link Shortener
             </div>
             <form
                 action="/signin"
-                className="w-1/2 sm:w-2/3 flex max-h-full flex-col space-y-8 items-center justify-center space-5 p-4"
+                className="w-2/3 lg:w-1/2 flex max-h-full flex-col space-y-8 items-center justify-center space-5 p-4"
                 method="post"
             >
                 <p className="text-green font-semibold text-2xl text-center">

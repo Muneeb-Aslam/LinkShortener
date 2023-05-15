@@ -8,7 +8,7 @@ export default function SignUp() {
             </div>
             <form
                 action="/register"
-                className="w-1/2 sm:w-2/3 flex max-h-full flex-col space-y-8 items-center justify-center space-5 p-4"
+                className="w-2/3 lg:w-1/2 flex max-h-full flex-col space-y-8 items-center justify-center space-5 p-4"
                 method="post"
             >
             <p className="text-green font-semibold text-2xl text-center">
