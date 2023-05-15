@@ -1,7 +1,18 @@
 import { Link } from "react-router-dom";
+import React from "react";
 import "./App.css";
 
 function App() {
+    const [formData,setformData] = React.useState({email:"",password:""})
+    const [formError, setformError] = React.useState({ email: "" });
+    function handleChange(event) {
+        return setformData((preValue) => {
+            return { ...preValue, [event.target.name]: event.target.value };
+        });
+    }
+    // function Validation() {
+    //     console.log("success");
+    // }
     return (
         <div className="bg-bkg font-sans w-full min-h-screen flex flex-col justify-center items-center space-y-2 sm:space-y-12">
             <div className="text-green font-bold text-3xl leading-none sm:pt-8 sm:pb-2 text-center">
@@ -9,7 +20,7 @@ function App() {
             </div>
             <form
                 action="/signin"
-                className="w-2/3 lg:w-1/2 flex max-h-full flex-col space-y-8 items-center justify-center space-5 p-4"
+                className="w-2/3 lg:w-1/2 flex max-h-full flex-col space-y-4 items-center justify-center space-5 p-4"
                 method="post"
             >
                 <p className="text-green font-semibold text-2xl text-center">
@@ -17,14 +28,22 @@ function App() {
                 </p>
                 <input
                     type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     className="text-green w-full sm:w-2/3 md:w-1/2 text-sm font-semibold px-4 h-12 outline-0 rounded-lg shadow-lg"
                     placeholder="Email"
                 />
+                <div className="message">{formError.email}</div>
                 <input
                     type="password"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleChange}
                     className="text-gray w-full sm:w-2/3 md:w-1/2 text-sm font-semibold px-4 h-12 outline-0 rounded-lg shadow-lg"
                     placeholder="Password"
                 />
+                <div className="message">{formError.password}</div>
                 <Link
                     className="text-lightgray w-full sm:w-2/3 md:w-1/2 text-end text-xs"
                     to="/forgot"

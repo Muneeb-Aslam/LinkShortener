@@ -10,6 +10,7 @@ export default {
           gray:"#818888",
           lightgray:"#717171",
           bordercolor:"#DDDDDD",
+          red:"#FF0000"
         }
       },
       fontFamily:{
