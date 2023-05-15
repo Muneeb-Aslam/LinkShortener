@@ -1,6 +1,6 @@
 import close from '/images/close.png'
 import PropTypes from 'prop-types'
-
+import { Link } from 'react-router-dom';
 export default function ResNav({closebtn}) {
     return (
         <>
@@ -9,19 +9,19 @@ export default function ResNav({closebtn}) {
                 id="navbar"
             >   <div className="flex justify-end pr-2"><img src={close} alt="" className="w-4 cursor-pointer" onClick={()=>{console.log(closebtn)}}/></div>
                 <li>
-                    <a href="/myurls" className="">
+                    <Link href="/myurls" className="">
                         My URLs
-                    </a>
+                    </Link>
                 </li>
                 <li>
-                    <a href="/login" className="">
+                    <Link href="/login" className="">
                         Sign Up
-                    </a>
+                    </Link>
                 </li>
                 <li>
-                    <a href="/register" className="">
+                    <Link href="/register" className="">
                         Sign In
-                    </a>
+                    </Link>
                 </li>
             </ul>
         </>

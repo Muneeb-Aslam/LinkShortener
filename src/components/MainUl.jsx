@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export default function MainNav() {
     return (
         <>
@@ -6,19 +7,19 @@ export default function MainNav() {
                 id="navbar"
             >
                 <li>
-                    <a href="/myurls" className="">
+                    <Link href="/myurls" className="">
                         My URLs
-                    </a>
+                    </Link>
                 </li>
                 <li>
-                    <a href="/login" className="">
+                    <Link href="/login" className="">
                         Sign Up
-                    </a>
+                    </Link>
                 </li>
                 <li>
-                    <a href="/register" className="">
+                    <Link href="/register" className="">
                         Sign In
-                    </a>
+                    </Link>
                 </li>
             </ul>
         </>

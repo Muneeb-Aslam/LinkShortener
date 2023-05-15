@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./App.css";
 
 function App() {
@@ -24,12 +25,12 @@ function App() {
                     className="text-gray w-full sm:w-2/3 md:w-1/2 text-sm font-semibold px-4 h-12 outline-0 rounded-lg shadow-lg"
                     placeholder="Password"
                 />
-                <a
+                <Link
                     className="text-lightgray w-full sm:w-2/3 md:w-1/2 text-end text-xs"
-                    href="/forgot"
+                    to="/forgot"
                 >
                     Forgot Password?
-                </a>
+                </Link>
                 <button
                     type="submit"
                     className="w-1/4 md:w-1/6 text-white text-xs bg-green rounded-md h-8 shadow-lg"
@@ -37,12 +38,12 @@ function App() {
                     Login
                 </button>
             </form>
-            <a
+            <Link
                 className="text-lightgray w-full text-center text-xs"
-                href="/register"
+                to="/register"
             >
                 Do Not Have an Account ? Sign Up
-            </a>
+            </Link>
         </div>
     );
 }

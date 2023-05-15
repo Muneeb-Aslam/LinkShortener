@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 export default function SignUp() {
+
     return (
         <div className="bg-bkg font-sans w-full min-h-screen flex flex-col justify-center items-center space-y-12">
             <div className="text-green font-bold text-3xl leading-none pt-4 text-center">
@@ -34,12 +36,12 @@ export default function SignUp() {
                     Register
                 </button>
             </form>
-            <a
+            <Link
                 className="text-lightgray w-full text-center text-xs"
-                href="/login"
+                to="/login"
             >
                 Have an Account ? Sign In
-            </a>
+            </Link>
         </div>
     );
 }
