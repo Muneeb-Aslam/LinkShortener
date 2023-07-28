@@ -5,7 +5,7 @@ export default function Main() {
                 Welcome to Link Shortener
             </p>
             <form
-                action="/shortener"
+                action="/shortURL"
                 className="bg-bkg w-full flex flex-col space-y-8 items-center  space-5 p-4"
                 method="post"
             >   
@@ -37,9 +37,9 @@ export default function Main() {
                 </div>
                 <button
                     type="submit"
-                    className="w-fit text-white text-xs bg-green rounded-md h-8 shadow-lg px-4"
+                    className="w-fit text-white text-md bg-green rounded-md h-8 shadow-lg px-4"
                 >
-                    Submit
+                    Shorten
                 </button>
             </form>
         </div>

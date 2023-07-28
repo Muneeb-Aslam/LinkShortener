@@ -17,10 +17,13 @@ export default function SignUp() {
             return { ...preValue, [event.target.name]: event.target.value };
         });
     }
+    function handleClick(e){
+        e.preventDefault()
+    }
     function Validation() {
         const { name, email, password } = formData;
         const nameRegex = /^[a-zA-Z]+ [a-zA-Z]+$/;
-        const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        const emailRegex = /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/;
         const passwordRegex =
             /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
         !nameRegex.test(name)
@@ -30,14 +33,14 @@ export default function SignUp() {
             : setformError((preValue) => {
                   return { ...preValue, name: "" };
               });
-        !emailRegex.test(email) && email !== ""
+        !emailRegex.test(email)
             ? setformError((preValue) => {
                   return { ...preValue, email: "Invalid Email" };
               })
             : setformError((preValue) => {
                   return { ...preValue, email: "" };
               });
-        !passwordRegex.test(password) && password !== ""
+        !passwordRegex.test(password)
             ? setformError((preValue) => {
                   return {
                       ...preValue,
@@ -95,6 +98,7 @@ export default function SignUp() {
                 <button
                     type="submit"
                     className="w-1/3 md:w-1/6 text-white text-xs bg-green rounded-md h-8 shadow-lg"
+                    onClick={handleClick}
                 >
                     Register
                 </button>

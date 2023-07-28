@@ -7,17 +7,17 @@ export default function MainNav() {
                 id="navbar"
             >
                 <li>
-                    <Link href="/myurls" className="">
+                    <Link to="/urls" className="">
                         My URLs
                     </Link>
                 </li>
                 <li>
-                    <Link href="/login" className="">
+                    <Link to="/register" className="">
                         Sign Up
                     </Link>
                 </li>
                 <li>
-                    <Link href="/register" className="">
+                    <Link to="/login" className="">
                         Sign In
                     </Link>
                 </li>
