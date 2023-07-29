@@ -17,40 +17,31 @@ export default function SignUp() {
             return { ...preValue, [event.target.name]: event.target.value };
         });
     }
-    function handleClick(e){
+    function handleClick(e) {
         e.preventDefault()
     }
-    function Validation() {
-        const { name, email, password } = formData;
+    function Validation(e) {
         const nameRegex = /^[a-zA-Z]+ [a-zA-Z]+$/;
-        const emailRegex = /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/;
+        const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
         const passwordRegex =
             /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
-        !nameRegex.test(name)
-            ? setformError((preValue) => {
-                  return { ...preValue, name: "Full Name" };
-              })
-            : setformError((preValue) => {
-                  return { ...preValue, name: "" };
-              });
-        !emailRegex.test(email)
-            ? setformError((preValue) => {
-                  return { ...preValue, email: "Invalid Email" };
-              })
-            : setformError((preValue) => {
-                  return { ...preValue, email: "" };
-              });
-        !passwordRegex.test(password)
-            ? setformError((preValue) => {
-                  return {
-                      ...preValue,
-                      password:
-                          "Minimum eight character,Atleast letter, number, and special character",
-                  };
-              })
-            : setformError((preValue) => {
-                  return { ...preValue, password: "" };
-              });
+
+        if (!formData[e.target.name]) {
+            return setformError((preValue) => {
+                return { ...preValue, [e.target.name]: "Required" }
+            })
+        } else {
+            let input;
+            [e.target.name] == "name" ? input = nameRegex : [e.target.name] == "email" ? input = emailRegex : input = passwordRegex
+            !input.test(formData[e.target.name]) ? setformError((preValue) => {
+                return [e.target.name] == "name" ? { ...preValue, name: "Enter Name" } : [e.target.name] == "email" ? { ...preValue, email: "Enter Valid Email" } : { ...preValue, password: "Atleast 8 characters, Minimum one Upper, Lower Case and Specail Character" }
+            }) :
+                setformError({
+                    name: "",
+                    email: "",
+                    password: "",
+                })
+        }
     }
     return (
         <div className="bg-bkg font-sans w-full min-h-screen flex flex-col justify-center items-center space-y-8">
@@ -62,9 +53,9 @@ export default function SignUp() {
                 className="w-2/3 lg:w-1/2 flex max-h-full flex-col space-y-4 items-center justify-center space-5 p-4 relative"
                 method="post"
             >
-            <p className="text-green font-semibold text-2xl text-center">
-                Register
-            </p>
+                <p className="text-green font-semibold text-2xl text-center">
+                    Register
+                </p>
                 <input
                     type="text"
                     name="name"
