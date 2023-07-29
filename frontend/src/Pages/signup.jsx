@@ -34,12 +34,10 @@ export default function SignUp() {
             let input;
             [e.target.name] == "name" ? input = nameRegex : [e.target.name] == "email" ? input = emailRegex : input = passwordRegex
             !input.test(formData[e.target.name]) ? setformError((preValue) => {
-                return [e.target.name] == "name" ? { ...preValue, name: "Enter Name" } : [e.target.name] == "email" ? { ...preValue, email: "Enter Valid Email" } : { ...preValue, password: "Atleast 8 characters, Minimum one Upper, Lower Case and Specail Character" }
+                return [e.target.name] == "name" ? { ...preValue, name: "Enter Name" } : [e.target.name] == "email" ? { ...preValue, email: "Enter Valid Email" } : { ...preValue, password: "Atleast 8 characters, Minimum One Number, Upper and Lower Case and Special Character" }
             }) :
-                setformError({
-                    name: "",
-                    email: "",
-                    password: "",
+                setformError((preValue) => {
+                    return { ...preValue ,[e.target.name]:""}
                 })
         }
     }
