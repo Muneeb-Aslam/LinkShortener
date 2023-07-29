@@ -3,16 +3,25 @@ import React from "react";
 import "./App.css";
 
 function App() {
-    const [formData,setformData] = React.useState({email:"",password:""})
-    const [formError, setformError] = React.useState({ email: "" });
+    const [formData, setformData] = React.useState({ email: "", password: "" })
+    const [formError, setformError] = React.useState({ email: "", password: "" });
+
     function handleChange(event) {
         return setformData((preValue) => {
             return { ...preValue, [event.target.name]: event.target.value };
         });
     }
-    // function Validation() {
-    //     console.log("success");
-    // }
+    function Validation(e) {
+        if (!formData[e.target.name]) {
+            return setformError((preValue) => {
+                return { ...preValue, [e.target.name]: "Required" }
+            })
+        } else {
+            return setformError((preValue) => {
+                return { ...preValue, [e.target.name]: "" }
+            })
+        }
+    }
     return (
         <div className="bg-bkg font-sans w-full min-h-screen flex flex-col justify-center items-center space-y-2 sm:space-y-12">
             <div className="text-green font-bold text-3xl leading-none sm:pt-8 sm:pb-2 text-center">
@@ -33,8 +42,9 @@ function App() {
                     onChange={handleChange}
                     className="text-green w-full sm:w-2/3 md:w-1/2 text-sm font-semibold px-4 h-12 outline-0 rounded-lg shadow-lg"
                     placeholder="Email"
+                    onBlur={Validation}
                 />
-                <div className="message">{formError.email}</div>
+                <div className="text-red text-xs px-2 text-start w-full sm:w-2/3 md:w-1/2">{formError.email}</div>
                 <input
                     type="password"
                     name="password"
@@ -42,8 +52,9 @@ function App() {
                     onChange={handleChange}
                     className="text-gray w-full sm:w-2/3 md:w-1/2 text-sm font-semibold px-4 h-12 outline-0 rounded-lg shadow-lg"
                     placeholder="Password"
+                    onBlur={Validation}
                 />
-                <div className="message">{formError.password}</div>
+                <div className="text-red text-xs px-2 text-start w-full sm:w-2/3 md:w-1/2">{formError.password}</div>
                 <Link
                     className="text-lightgray w-full sm:w-2/3 md:w-1/2 text-end text-xs"
                     to="/forgot"
